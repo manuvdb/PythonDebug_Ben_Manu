@@ -21,18 +21,25 @@ export function readUserFromToken(token) {
         return null;
     }
 
-    const payload = JSON.parse(atob(token.split('.')[1]));
+    try {
 
-    if (payload.exp * 1000 < Date.now()) {
+        const payload = JSON.parse(atob(token.split('.')[1]));
+    
+        if (payload.exp * 1000 < Date.now()) {
+            clearStoredToken();
+    
+            return null;
+        }
+    
+        return {
+            userid: payload.userid,
+            username: payload.username,
+            roles: payload.roles,
+            isAdmin: payload.roles.includes("ADMIN")
+        };
+
+    } catch {
         clearStoredToken();
-
-        return null;
+        return null
     }
-
-    return {
-        userid: payload.userid,
-        username: payload.username,
-        roles: payload.roles,
-        isAdmin: payload.roles.includes("ADMIN")
-    };
 }
