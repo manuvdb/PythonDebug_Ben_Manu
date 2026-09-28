@@ -2,14 +2,16 @@ import { getStoredToken } from "../utils/token";
 
 const apiBase = import.meta.env.VITE_API_URL_BASE;
 
-const token = getStoredToken();
-
-const headers = {
-    "Content-Type": "application/json",
-    "Authorization": `Bearer ${token}`
-};
 
 async function request(method, url, body) {
+    
+    const token = getStoredToken();
+    
+    const headers = {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+    };
+    
     const response = await fetch(`${apiBase}/${url}`, {
         method,
         headers,
