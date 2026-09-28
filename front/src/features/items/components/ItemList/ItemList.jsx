@@ -22,8 +22,8 @@ export default function ItemList({items, canOrder = false, onAddToBasket}) {
             </thead>
             <tbody>
                 {
-                    items.map((item, index) =>
-                        <ItemRow key={index}
+                    items.map((item) =>
+                        <ItemRow key={item.itemid}
                                  item={item}
                                  canOrder={canOrder}
                                  onAddToBasket={onAddToBasket}/>
@@ -31,7 +31,7 @@ export default function ItemList({items, canOrder = false, onAddToBasket}) {
                 }
             </tbody>
         </table>
-    );
+    );  
 }
 
 function ItemRow({item, canOrder, onAddToBasket}) {
