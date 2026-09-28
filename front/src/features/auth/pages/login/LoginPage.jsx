@@ -16,16 +16,19 @@ export default function LoginPage() {
         const username = formdata.get("username");
         const userpassword = formdata.get("userpassword");
 
-        try {
+        try { 
             await login(username, userpassword).then(
                 data => {
-                    if (data) {
+                    // data.token si non data.authentification == Wrong user password
+                    if (data.token) {
                         storeToken(data.token);
 
                         setToken(data.token);
                         setUserConnected(readUserFromToken(data.token));
 
                         nav('/');
+                    } else {
+                        throw new Error(data.authentication)
                     }
                 }
             )
