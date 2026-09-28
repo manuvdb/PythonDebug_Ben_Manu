@@ -18,7 +18,7 @@ class ItemDTO(AbstractDTO):
         if isinstance(entity, Item):
             item_dto.itemid = entity.itemid
             item_dto.itemname = entity.itemname
-            item_dto.itemquantity = entity.itemstock
+            item_dto.itemstock = entity.itemstock
             item_dto.itemdescription = entity.itemdescription
             item_dto.itemprice = entity.itemprice
         elif isinstance(entity, BasketItem):
