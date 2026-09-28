@@ -4,6 +4,7 @@ WTForms-JSON
 Jinja2
 Flask-DebugToolbar
 psycopg2-binary
+psycopg
 bcrypt
 Flask-SQLAlchemy
 Flask-Migrate
