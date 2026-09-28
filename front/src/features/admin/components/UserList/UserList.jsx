@@ -12,7 +12,7 @@ export default function UserList({users}) {
             <tbody>
                 {
                     users.map(user =>
-                        <tr>
+                        <tr key={user.userid}>
                             <td>{user.userid}</td>
                             <td>{user.username}</td>
                             <td>{user.useremail}</td>
