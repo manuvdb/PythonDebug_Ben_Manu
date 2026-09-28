@@ -8,7 +8,7 @@ export default function ItemForm({onCreated}) {
         const item = {
             itemname: formdata.get("itemname"),
             itemdescription: formdata.get("itemdescription"),
-            itemquantity: Number(formdata.get("itemstock")),
+            itemstock: Number(formdata.get("itemstock")),
             itemprice: Number(formdata.get("itemprice"))
         };
 
