@@ -36,7 +36,7 @@ function InnerItemCatalog({itemListPromise, query}) {
     const [token] = useAtom(tokenAtom);
     const [message, setMessage] = useState('');
 
-    const filteredItems = itemList.filter(item => item.itemname.includes(query));
+    const filteredItems = itemList.filter(item => item.itemname.toLowerCase().includes(query.toLowerCase()));
 
     const handleAddToBasket = async (itemid, itemquantity) => {
         await addItemToBasket(itemid, itemquantity);
